@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIA Version Tracker</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="alternate icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🔧 TIA Version Tracker</h1>
+            <p class="subtitle">Track and compare TIA Portal project versions</p>
+        </header>
+
+        <main>
+            <!-- Project Selection Section -->
+            <section class="card">
+                <h2>Select Project</h2>
+                <div class="project-controls">
+                    <select id="projectSelect" class="form-control">
+                        <option value="">Select a project...</option>
+                    </select>
+                    <button id="newProjectBtn" class="btn btn-primary">+ New Project</button>
+                </div>
+
+                <div id="newProjectForm" class="form-group hidden">
+                    <input type="text" id="newProjectName" class="form-control" placeholder="Enter project name">
+                    <div class="button-group">
+                        <button id="createProjectBtn" class="btn btn-success">Create</button>
+                        <button id="cancelProjectBtn" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Upload Snapshot Section -->
+            <section class="card" id="uploadSection" style="display: none;">
+                <h2>Upload Snapshot</h2>
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label for="operatorInput">Operator Name</label>
+                        <input type="text" id="operatorInput" class="form-control" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fileInput">Select .zap15/.zap20 File</label>
+                        <div class="file-upload">
+                            <input type="file" id="fileInput" accept=".zap15,.zap20" required>
+                            <span class="file-info" id="fileInfo">No file selected</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Upload Snapshot</button>
+                </form>
+
+                <div id="uploadStatus" class="status-message hidden"></div>
+            </section>
+
+            <!-- Snapshots List Section -->
+            <section class="card" id="snapshotsSection" style="display: none;">
+                <h2>Project Snapshots</h2>
+                <div id="snapshotsList" class="snapshots-list"></div>
+
+                <div class="comparison-controls hidden" id="compareControls">
+                    <button id="compareBtn" class="btn btn-success">Compare Selected Snapshots</button>
+                    <p class="hint">Select exactly 2 snapshots to compare</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Results - TIA Version Tracker</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="alternate icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Comparison Results</h1>
+            <div class="header-actions">
+                <button id="downloadPdfBtn" class="btn btn-primary">📄 Download PDF Report</button>
+                <a href="/" class="btn btn-secondary">← Back to Snapshots</a>
+            </div>
+        </header>
+
+        <main id="comparisonResults">
+            <!-- Summary Cards -->
+            <section class="summary-cards">
+                <div class="summary-card new">
+                    <div class="card-icon">✅</div>
+                    <div class="card-content">
+                        <h3 id="newTagsCount">0</h3>
+                        <p>New Tags</p>
+                    </div>
+                </div>
+
+                <div class="summary-card modified">
+                    <div class="card-icon">⚠️</div>
+                    <div class="card-content">
+                        <h3 id="modifiedTagsCount">0</h3>
+                        <p>Modified Tags</p>
+                    </div>
+                </div>
+
+                <div class="summary-card deleted">
+                    <div class="card-icon">❌</div>
+                    <div class="card-content">
+                        <h3 id="deletedTagsCount">0</h3>
+                        <p>Deleted Tags</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Tags Table -->
+            <section class="card" id="newTagsSection">
+                <h2>✅ New Tags</h2>
+                <div class="table-container">
+                    <table id="newTagsTable">
+                        <thead>
+                            <tr>
+                                <th>Tag Name</th>
+                                <th>Type</th>
+                                <th>Address</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Modified Tags Table -->
+            <section class="card" id="modifiedTagsSection">
+                <h2>⚠️ Modified Tags</h2>
+                <div id="modifiedTagsList"></div>
+            </section>
+
+            <!-- Deleted Tags Table -->
+            <section class="card" id="deletedTagsSection">
+                <h2>❌ Deleted Tags</h2>
+                <div class="table-container">
+                    <table id="deletedTagsTable">
+                        <thead>
+                            <tr>
+                                <th>Tag Name</th>
+                                <th>Type</th>
+                                <th>Address</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/comparison.js') }}"></script>
+</body>
+
+</html>
