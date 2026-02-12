@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIA Version Tracker - Automated TIA Portal Version Control</title>
+    <style>
+        :root {
+            --primary: #009999;
+            /* Siemens Teal-ish */
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --text: #1a202c;
+            --accent: #2b6cb0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #007fa3;
+        }
+
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f0fdfd 0%, #e6fffa 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        code {
+            background: #edf2f7;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                TIA Version Tracker
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="https://github.com/Ivancitoo-N/tia-version-tracker" class="btn">View on GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Control Versions in TIA Portal Like a Pro</h1>
+        <p>Automated extraction, comparison, and reporting for Siemens TIA Portal projects. Stop guessing what changed
+            in your PLC code.</p>
+        <a href="https://github.com/Ivancitoo-N/tia-version-tracker" class="btn"
+            style="font-size: 1.2rem; padding: 1rem 2rem;">Get Started</a>
+    </section>
+
+    <section id="features" class="features">
+        <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Automation with Openness</h3>
+            <p>Directly processes <code>.zap15</code> and <code>.zap20</code> files using TIA Portal Openness API. No
+                manual export needed.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Deep Comparison</h3>
+            <p>Detects added, modified, and deleted Tags, Blocks (OB, FB, FC), and Hardware configurations instantly.
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Visual Reports</h3>
+            <p>Generate clean, professional PDF reports of changes to share with your team or clients.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast & Local</h3>
+            <p>Runs locally on your machine. Your proprietary code never leaves your secure network environment.</p>
+        </div>
+    </section>
+
+    <section id="how-it-works" style="background: white; padding: 4rem 2rem;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--dark);">How it Works</h2>
+
+            <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+                <div
+                    style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">
+                    1</div>
+                <div>
+                    <h3>Upload Snapshot</h3>
+                    <p>Upload your compressed TIA Portal project file through the web interface.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+                <div
+                    style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">
+                    2</div>
+                <div>
+                    <h3>Automated Extraction</h3>
+                    <p>The system launches TIA Portal in the background, extracts all logic and tags to XML.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1.5rem;">
+                <div
+                    style="background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold;">
+                    3</div>
+                <div>
+                    <h3>Compare & Report</h3>
+                    <p>Select two snapshots to see exactly what changed highlighted in Green/Red/Yellow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <h2>Ready to take control?</h2>
+        <p style="margin: 1rem 0 2rem; color: #cbd5e0;">Open source and ready to deploy.</p>
+        <a href="https://github.com/Ivancitoo-N/tia-version-tracker" class="btn"
+            style="background: white; color: var(--primary);">Download Now</a>
+    </div>
+
+    <footer class="footer">
+        <p>Created by Ivancitoo-N. TIA Portal is a trademark of Siemens AG.</p>
+    </footer>
+
+</body>
+
+</html>
