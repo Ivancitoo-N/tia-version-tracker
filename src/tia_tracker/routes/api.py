@@ -316,4 +316,7 @@ def generate_comparison_pdf():
         return send_file(pdf_path, as_attachment=True, download_name=Path(pdf_path).name)
 
     except Exception as e:
+        print(f"API ERROR (500) in PDF generation: {e}", flush=True)
+        import traceback
+        traceback.print_exc()
         return jsonify({"success": False, "error": str(e)}), 500

@@ -105,9 +105,9 @@ class ReportGenerator:
 
         summary_data = [
             ["Change Type", "Count"],
-            ["✅ New Tags", str(len(comparison_result.new_tags))],
-            ["⚠️ Modified Tags", str(len(comparison_result.modified_tags))],
-            ["❌ Deleted Tags", str(len(comparison_result.deleted_tags))],
+            ["[NEW] New Tags", str(len(comparison_result.new_tags))],
+            ["[MOD] Modified Tags", str(len(comparison_result.modified_tags))],
+            ["[DEL] Deleted Tags", str(len(comparison_result.deleted_tags))],
             ["New Blocks", str(len(comparison_result.new_blocks))],
             ["Deleted Blocks", str(len(comparison_result.deleted_blocks))],
             ["New Hardware", str(len(comparison_result.new_hardware))],
@@ -134,7 +134,7 @@ class ReportGenerator:
 
         # New Tags Section
         if comparison_result.new_tags:
-            story.append(Paragraph("✅ New Tags", self.styles["Heading2"]))
+            story.append(Paragraph("[NEW] New Tags", self.styles["Heading2"]))
             story.append(Spacer(1, 12))
 
             tags_data = [["Tag Name", "Type", "Address", "Description"]]
@@ -168,12 +168,12 @@ class ReportGenerator:
 
         # Modified Tags Section
         if comparison_result.modified_tags:
-            story.append(Paragraph("⚠️ Modified Tags", self.styles["Heading2"]))
+            story.append(Paragraph("[MOD] Modified Tags", self.styles["Heading2"]))
             story.append(Spacer(1, 12))
 
             for mod in comparison_result.modified_tags:
                 story.append(
-                    Paragraph(f"<b>{mod['tag_name']}</b>", self.styles["Heading3"])
+                    Paragraph(f"<b>[MOD] {mod['tag_name']}</b>", self.styles["Heading3"])
                 )
 
                 changes_data = [["Field", "Old Value", "New Value"]]
@@ -205,7 +205,7 @@ class ReportGenerator:
         # Deleted Tags Section
         if comparison_result.deleted_tags:
             story.append(PageBreak())
-            story.append(Paragraph("❌ Deleted Tags", self.styles["Heading2"]))
+            story.append(Paragraph("[DEL] Deleted Tags", self.styles["Heading2"]))
             story.append(Spacer(1, 12))
 
             deleted_data = [["Tag Name", "Type", "Address", "Description"]]
