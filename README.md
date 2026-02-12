@@ -20,6 +20,18 @@ A web application for tracking and comparing TIA Portal project versions by anal
 - Python 3.11 or higher
 - pip
 
+### TIA Portal Openness Requirements (For .zap20 automation)
+
+To use the automated extraction from `.zap20` files, the host machine **MUST** meet these requirements:
+
+1.  **TIA Portal V20** installed with Openness support.
+2.  **Windows User Group**: The user running the application must be a member of the **"Siemens TIA Openness"** local Windows group.
+    - *How to check:* Run `lusrmgr.msc` -> Groups -> Siemens TIA Openness -> Add your user -> **Log off and on again**.
+3.  **DLL Path**: If TIA Portal is installed in a non-default location, update `src/tia_tracker/openness/process_openness.py`:
+    ```python
+    OPENNESS_DLL_PATH = r"Path\To\Siemens.Engineering.dll"
+    ```
+
 ### Setup
 
 1. Clone or download this repository
